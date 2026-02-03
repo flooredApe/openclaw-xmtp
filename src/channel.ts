@@ -176,6 +176,18 @@ export const xmtpPlugin: ChannelPlugin<ResolvedXmtpAccount> = {
         throw new Error("XMTP private key not configured");
       }
 
+      // CRITICAL FIX: Stop existing client if one exists to prevent duplicate message processing
+      const existingClient = activeClients.get(account.accountId);
+      if (existingClient) {
+        ctx.log?.warn(`[${account.accountId}] Stopping existing XMTP client before starting new one`);
+        try {
+          await existingClient.stop();
+        } catch (error) {
+          ctx.log?.error(`[${account.accountId}] Error stopping existing client: ${error}`);
+        }
+        activeClients.delete(account.accountId);
+      }
+
       const runtime = getXmtpRuntime();
       const cfg = runtime.config.loadConfig() as OpenClawConfig;
 
