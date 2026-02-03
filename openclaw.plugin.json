@@ -1,0 +1,11 @@
+{
+  "id": "xmtp",
+  "name": "XMTP",
+  "description": "XMTP messaging channel for web3 agent communication",
+  "channels": ["xmtp"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

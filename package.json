@@ -1,0 +1,35 @@
+{
+  "name": "@openclaw/xmtp",
+  "version": "1.0.0",
+  "description": "XMTP channel plugin for OpenClaw",
+  "main": "index.ts",
+  "type": "module",
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "xmtp",
+      "label": "XMTP",
+      "selectionLabel": "XMTP (Web3 Messaging)",
+      "docsPath": "/channels/xmtp",
+      "blurb": "Web3 messaging via XMTP protocol",
+      "order": 95,
+      "aliases": [
+        "xmtp"
+      ]
+    }
+  },
+  "dependencies": {
+    "@xmtp/agent-sdk": "^2.0.1",
+    "viem": "^2.0.0",
+    "zod": "^4.3.6"
+  },
+  "keywords": [
+    "openclaw",
+    "xmtp",
+    "web3",
+    "messaging",
+    "channel"
+  ]
+}
