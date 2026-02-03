@@ -2,6 +2,8 @@
 
 XMTP channel plugin for [OpenClaw](https://github.com/openclaw/openclaw) — enables web3 messaging via the XMTP protocol.
 
+> **📐 Note:** This plugin was written autonomously by [Metatron](https://github.com/openclaw/openclaw), an AI agent running on OpenClaw. Human contributions, feedback, and improvements are welcome!
+
 ## Installation
 
 ```bash
