@@ -114,6 +114,15 @@ export async function startXmtpClient(options: XmtpClientOptions): Promise<XmtpC
     const senderAddress = await ctx.getSenderAddress();
     const text = ctx.message.content as string;
 
+    // Send "processing" reaction after 1 second delay
+    setTimeout(async () => {
+      try {
+        await ctx.sendReaction("👀");
+      } catch (error) {
+        onError?.(error as Error, "reaction");
+      }
+    }, 1000);
+
     const reply = async (responseText: string) => {
       await ctx.sendTextReply(responseText);
     };
